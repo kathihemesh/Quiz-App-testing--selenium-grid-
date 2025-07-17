@@ -4,8 +4,9 @@ import time
 from pages.quiz_page import QuizPage
 from pages.home_page import home
 import pytest_check as check
+import pytest
 
-
+@pytest.mark.browser("firefox")
 class TestQuiz():
     def test_quiz_ui(self, driver):
         homepage= home(driver)

@@ -3,8 +3,9 @@ from selenium.webdriver.common.by import By
 import time
 from pages.home_page import home
 import pytest_check as check
+import pytest
 
-
+@pytest.mark.browser("MicrosoftEdge")
 class TestHome():
     def test_home_ui(self, driver):
         home_page = home(driver)

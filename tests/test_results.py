@@ -4,7 +4,9 @@ from pages.home_page import home
 from pages.quiz_page import QuizPage
 from pages.results_page import ResultsPage
 import pytest_check as check
+import pytest
 
+@pytest.mark.browser("chrome")
 # Helper function to complete quiz, track correct answers, and go to results page
 def complete_quiz_and_go_to_results(driver):
     home_page = home(driver)
@@ -25,6 +27,7 @@ def complete_quiz_and_go_to_results(driver):
     results_page = ResultsPage(driver)
     return results_page, correct_count
 
+@pytest.mark.browser("MicrosoftEdge")
 def test_retry_quiz(driver):
     results_page, correct_count = complete_quiz_and_go_to_results(driver)
     time.sleep(2)
@@ -35,6 +38,7 @@ def test_retry_quiz(driver):
     quiz_page = QuizPage(driver)
     check.is_true(quiz_page.get_quiz_section().is_displayed(), "Failed to navigate to quiz section after retrying quiz")
 
+@pytest.mark.browser("firefox")
 def test_home_button(driver):
     results_page, correct_count = complete_quiz_and_go_to_results(driver)
     time.sleep(2)

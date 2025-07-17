@@ -11,7 +11,7 @@ class window_api_response_available:
     def __call__(self, driver):
         return driver.execute_script("return typeof window.apiResponse !== 'undefined' && window.apiResponse !== null;")
 
-
+@pytest.mark.browser("chrome")
 def test_api_ui_question_and_answer_match(driver):
     home_page = home(driver)
     home_page.select_category("9")  
