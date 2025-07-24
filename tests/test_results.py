@@ -49,3 +49,4 @@ def test_home_button(driver):
     time.sleep(2)
     home_page = home(driver)
     check.is_true(home_page.get_heading().is_displayed(), "Failed to navigate to home after clicking home button")
+    # check
